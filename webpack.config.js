@@ -6,19 +6,14 @@ module.exports = {
   entry: "./src/index.js",
   mode: "development",
   output: {
-    filename: "./main.js"
-  },
-  devServer: {
-    contentBase: path.join(__dirname, "dist"),
-    compress: true,
-    port: 9000,
-    watchContentBase: true,
-    progress: true
+    path: path.resolve(__dirname, "public/"),
+    publicPath: "/public/",
+    filename: "bundle.js"
   },
   module: {
     rules: [
       {
-        test: /\.m?js$/,
+        test: /\.(js|jsx)$/,
           exclude: /(node_modules|bower_components)/,
           use: {
             loader: 'babel-loader',
